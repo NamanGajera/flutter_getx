@@ -1,7 +1,9 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/changelanguages.dart';
 import 'package:flutter_getx/homescreen.dart';
+import 'package:flutter_getx/languages.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
@@ -14,9 +16,13 @@ class flutter_getx extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      translations: languages(),
+      locale: Locale('en', 'US'),
+      // for default language
+      fallbackLocale: Locale('en', 'US'),
+      home: const ChangeLan(),
     );
   }
 }
