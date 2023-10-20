@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/changelanguages.dart';
+import 'package:flutter_getx/controller.dart';
 import 'package:flutter_getx/homescreen.dart';
 import 'package:flutter_getx/languages.dart';
 import 'package:get/get.dart';
@@ -16,13 +17,26 @@ class flutter_getx extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      translations: languages(),
-      locale: Locale('en', 'US'),
-      // for default language
-      fallbackLocale: Locale('en', 'US'),
-      home: const ChangeLan(),
-    );
+    Controller controller = Get.put(Controller());
+    return Obx(() => GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          translations: languages(),
+          locale: Locale('en', 'US'),
+          // for default language
+          fallbackLocale: const Locale('en', 'US'),
+          darkTheme: ThemeData(
+            brightness: Brightness.dark,
+            cardColor: Colors.black87,
+            scaffoldBackgroundColor: Colors.black54,
+          ),
+          theme: ThemeData(
+            brightness: Brightness.light,
+            cardColor: Colors.white38,
+            scaffoldBackgroundColor: Colors.grey[200],
+          ),
+          themeMode:
+              controller.darkmode.value ? ThemeMode.dark : ThemeMode.light,
+          home: const ChangeLan(),
+        ));
   }
 }

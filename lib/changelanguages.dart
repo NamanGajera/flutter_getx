@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/controller.dart';
 import 'package:get/get.dart';
 
 class ChangeLan extends StatelessWidget {
@@ -6,8 +7,9 @@ class ChangeLan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Controller controller = Get.put(Controller());
     return Scaffold(
-      backgroundColor: Colors.lightBlue.shade100,
+      // backgroundColor: Colors.lightBlue.shade100,
       appBar: AppBar(
         title: Text('title'.tr),
         centerTitle: true,
@@ -19,6 +21,14 @@ class ChangeLan extends StatelessWidget {
           children: [
             const SizedBox(
               height: 30,
+            ),
+            Obx(
+              () => Switch(
+                value: controller.darkmode.value,
+                onChanged: (value) {
+                  controller.setdarkmode(value);
+                },
+              ),
             ),
             InkWell(
               onTap: () {
@@ -63,7 +73,7 @@ class ChangeLan extends StatelessWidget {
                     ));
               },
               child: Card(
-                color: Colors.lightBlue.shade200,
+                // color: Colors.lightBlue.shade200,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -78,7 +88,7 @@ class ChangeLan extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Card(
-              color: Colors.lightBlue.shade200,
+              // color: Colors.lightBlue.shade200,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -92,7 +102,7 @@ class ChangeLan extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Card(
-              color: Colors.lightBlue.shade200,
+              // color: Colors.lightBlue.shade200,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
