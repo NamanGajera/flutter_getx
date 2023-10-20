@@ -14,65 +14,81 @@ class ChangeLan extends StatelessWidget {
         title: Text('title'.tr),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const SizedBox(
-              height: 30,
-            ),
-            Obx(
-              () => Switch(
-                value: controller.darkmode.value,
-                onChanged: (value) {
-                  controller.setdarkmode(value);
-                },
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(
+                height: 30,
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Get.defaultDialog(
-                    title: 'selectlan'.tr,
-                    titlePadding: const EdgeInsets.only(top: 15, bottom: 10),
-                    content: Column(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Get.updateLocale(const Locale('en', 'US'));
-                            Get.back();
-                          },
-                          child: const Text(
-                            'English',
-                            style: TextStyle(fontSize: 16),
+              Obx(
+                () => Switch(
+                  value: controller.darkmode.value,
+                  onChanged: (value) {
+                    controller.setdarkmode(value);
+                  },
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Get.defaultDialog(
+                      title: 'selectlan'.tr,
+                      titlePadding: const EdgeInsets.only(top: 15, bottom: 10),
+                      content: Column(
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Get.updateLocale(const Locale('en', 'US'));
+                              Get.back();
+                            },
+                            child: const Text(
+                              'English',
+                              style: TextStyle(fontSize: 16),
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 10),
-                        InkWell(
-                          onTap: () {
-                            Get.updateLocale(const Locale('gu', 'IND'));
-                            Get.back();
-                          },
-                          child: const Text(
-                            'Gujarati',
-                            style: TextStyle(fontSize: 16),
+                          const SizedBox(height: 10),
+                          InkWell(
+                            onTap: () {
+                              Get.updateLocale(const Locale('gu', 'IND'));
+                              Get.back();
+                            },
+                            child: const Text(
+                              'Gujarati',
+                              style: TextStyle(fontSize: 16),
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 10),
-                        InkWell(
-                          onTap: () {
-                            Get.updateLocale(const Locale('hin', 'IND'));
-                            Get.back();
-                          },
-                          child: const Text(
-                            'Hindi',
-                            style: TextStyle(fontSize: 16),
+                          const SizedBox(height: 10),
+                          InkWell(
+                            onTap: () {
+                              Get.updateLocale(const Locale('hin', 'IND'));
+                              Get.back();
+                            },
+                            child: const Text(
+                              'Hindi',
+                              style: TextStyle(fontSize: 16),
+                            ),
                           ),
-                        ),
-                      ],
-                    ));
-              },
-              child: Card(
+                        ],
+                      ));
+                },
+                child: Card(
+                  // color: Colors.lightBlue.shade200,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text(
+                      'selectlan'.tr,
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Card(
                 // color: Colors.lightBlue.shade200,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -80,44 +96,30 @@ class ChangeLan extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Text(
-                    'selectlan'.tr,
-                    style: const TextStyle(fontSize: 18),
+                    'name'.tr,
+                    style: const TextStyle(fontSize: 16),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 10),
-            Card(
-              // color: Colors.lightBlue.shade200,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Text(
-                  'name'.tr,
-                  style: const TextStyle(fontSize: 16),
+              const SizedBox(height: 20),
+              Card(
+                // color: Colors.lightBlue.shade200,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
                 ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            Card(
-              // color: Colors.lightBlue.shade200,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Text(
-                  'body'.tr,
-                  style: const TextStyle(
-                    fontSize: 16,
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Text(
+                    'body'.tr,
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
+                    textAlign: TextAlign.justify,
                   ),
-                  textAlign: TextAlign.justify,
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

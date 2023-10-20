@@ -1,12 +1,12 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/ImagePick.dart';
 import 'package:flutter_getx/changelanguages.dart';
 import 'package:flutter_getx/controller.dart';
 import 'package:flutter_getx/homescreen.dart';
 import 'package:flutter_getx/languages.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
   runApp(const flutter_getx());
@@ -36,7 +36,7 @@ class flutter_getx extends StatelessWidget {
           ),
           themeMode:
               controller.darkmode.value ? ThemeMode.dark : ThemeMode.light,
-          home: const ChangeLan(),
+          home: const ImagePick(),
         ));
   }
 }
