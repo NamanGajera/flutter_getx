@@ -6,6 +6,7 @@ import 'package:flutter_getx/changelanguages.dart';
 import 'package:flutter_getx/controller.dart';
 import 'package:flutter_getx/homescreen.dart';
 import 'package:flutter_getx/languages.dart';
+import 'package:flutter_getx/loginscreen.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -36,7 +37,7 @@ class flutter_getx extends StatelessWidget {
           ),
           themeMode:
               controller.darkmode.value ? ThemeMode.dark : ThemeMode.light,
-          home: const ImagePick(),
+          home: const LoginScreen(),
         ));
   }
 }
